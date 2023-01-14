@@ -18,8 +18,6 @@ import asyncio
 
 # --------- SESSION STATE ---------
 
-openai.api_key = "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"
-
 if "total_tokens_used" not in st.session_state:
     st.session_state.total_tokens_used = 0
 # --------- Streamlit ---------
@@ -82,7 +80,8 @@ if st.button("Ask the author"):
         
         # Generate the response
         with st.spinner("Generating the response..."):
-            completion = chat_with_author(author_bio,
+            completion = chat_with_author(st.secrets["OPENAI_API"],
+                                          author_bio,
                                           book_summary,
                                           prompt)
             
@@ -107,7 +106,8 @@ if st.button("Ask the author"):
 
         # Generate the response
         with st.spinner("Generating the response..."):
-            completion = chat_with_author(author_bio,
+            completion = chat_with_author(st.secrets["OPENAI_API"],
+                                          author_bio,
                                           book_summary,
                                           prompt)
 
