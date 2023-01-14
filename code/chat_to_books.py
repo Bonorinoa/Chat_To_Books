@@ -16,9 +16,7 @@ import asyncio
 # TODO: add option to select author from wikipedia
 # TODO: allow user to input his api key
 
-# --------- UTILS ---------
-
-openai.api_key = "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"
+# --------- SESSION STATE ---------
 
 if "total_tokens_used" not in st.session_state:
     st.session_state.total_tokens_used = 0
@@ -65,10 +63,10 @@ else:
 user_api_key = st.sidebar.text_input("Enter your openai api key (optional):")
 
 if user_api_key:
-    api_key = user_api_key
+    openai.api_key = user_api_key
     
 else:
-    api_key = openai.api_key
+    openai.api_key = "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"
 
 # Button
 if st.button("Ask the author"):
