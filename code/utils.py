@@ -10,6 +10,8 @@ from bs4 import BeautifulSoup
 import asyncio
 import more_itertools
 
+openai.api_key = "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"
+
 def get_author_bio(author_name:str)->str:
     base_url = "https://en.wikipedia.org/api/rest_v1/page/summary/"
     url = base_url + author_name
