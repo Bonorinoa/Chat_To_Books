@@ -18,6 +18,8 @@ import asyncio
 
 # --------- SESSION STATE ---------
 
+openai.api_key = "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"
+
 if "total_tokens_used" not in st.session_state:
     st.session_state.total_tokens_used = 0
 # --------- Streamlit ---------
