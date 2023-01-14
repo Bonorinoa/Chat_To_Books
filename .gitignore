@@ -102,6 +102,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+chat_to_books_venv/
 .env
 .venv
 env/
@@ -127,3 +128,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
