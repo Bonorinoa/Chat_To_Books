@@ -62,7 +62,6 @@ else:
 
 user_api_key = st.sidebar.text_input("Enter your openai api key (optional):")
 
-openai.api_key = "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"
 
 # Button
 if st.button("Ask the author"):
