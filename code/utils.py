@@ -87,12 +87,15 @@ def block_token_count(book_blocks):
     
     return token_size
 
-async def summarize_block(block,
+async def summarize_block(api_key,
+                          block,
                           max_tokens=200,
                           temperature=0.5,
                           top_p=1.0,
                           frequency_penalty=0.0,
                           presence_penalty=0.0):
+    
+    openai.api_key = api_key
     
     completions = openai.Completion.create(
       engine="text-davinci-003",
@@ -135,7 +138,8 @@ async def summarize_book(book_content,
     return book_summary
 
 
-def chat_with_author(author_bio, 
+def chat_with_author(api_key,
+                     author_bio, 
                      book_summary,
                      query,
                      max_tokens=100, 
@@ -143,6 +147,8 @@ def chat_with_author(author_bio,
                      top_p=1.0, 
                      frequency_penalty=0.0, 
                      presence_penalty=0.0):
+    
+    openai.api_key = api_key
     
     prompt = f"Based on the following author biography {author_bio} and book summary {book_summary}" \
        + f"Adopt the personality of the author and be capable of answering questions about the book. " \
