@@ -45,7 +45,7 @@ selected_book = st.sidebar.selectbox("Select a book", options)
 
 if selected_book:
     with st.spinner("Loading book..."):
-        demo_data = pd.read_csv("train_data.csv")
+        demo_data = pd.read_csv("code/train_data.csv")
 
 sample_questions = ["What inspired you to write this book?",
                     "Can you tell me more about the main character?",
