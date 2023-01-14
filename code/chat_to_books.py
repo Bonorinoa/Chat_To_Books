@@ -63,10 +63,10 @@ else:
 user_api_key = st.sidebar.text_input("Enter your openai api key (optional):")
 
 if user_api_key:
-    api_key = user_api_key
+    openai.api_key = user_api_key
     
 else:
-    api_key = "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"
+    openai.api_key = "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"
 
 # Button
 if st.button("Ask the author"):
@@ -85,8 +85,7 @@ if st.button("Ask the author"):
         
         # Generate the response
         with st.spinner("Generating the response..."):
-            completion = chat_with_author(api_key,
-                                          author_bio,
+            completion = chat_with_author(author_bio,
                                           book_summary,
                                           prompt)
             
@@ -111,8 +110,7 @@ if st.button("Ask the author"):
 
         # Generate the response
         with st.spinner("Generating the response..."):
-            completion = chat_with_author(api_key,
-                                          author_bio,
+            completion = chat_with_author(author_bio,
                                           book_summary,
                                           prompt)
 
